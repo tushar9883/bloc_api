@@ -35,7 +35,16 @@ class HomePage extends StatelessWidget {
                             margin: const EdgeInsets.all(10),
                             child: ListTile(
                               onTap: () {
-                                Toast.show('${singlePost.id.toString()}');
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  backgroundColor: Colors.lightGreen,
+                                  content: Text(singlePost.id.toString(),
+                                      textAlign: TextAlign.center),
+                                  duration: Duration(seconds: 1),
+                                ));
+                                print(
+                                    ' >>>>>>>>>> ${singlePost.id.toString()} <<<<<<<<<< ');
+
                                 //singlePost.id.toString();
                               },
                               title: Text(singlePost.title.toString()),
